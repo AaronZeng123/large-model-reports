@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年第一季度大模型季度报告</title>
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #ea4335;
+            --text-color: #202124;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dadce0;
+            --dark-gray: #5f6368;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--medium-gray);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .quarter-info {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .event-card {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .event-date {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        .event-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        
+        .model-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .model-comparison th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .model-comparison td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .model-comparison tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        .trend-item {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .trend-icon {
+            flex: 0 0 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+        
+        .trend-content {
+            flex: 1;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--medium-gray);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -13px;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>大模型季度报告</h1>
+            <div class="quarter-info">2025年第一季度（1月-3月）</div>
+        </header>
+        
+        <div class="section">
+            <h2>季度概述</h2>
+            <p>2025年第一季度，大模型领域延续了2024年底的高速发展态势，以OpenAI和DeepSeek为代表的企业在推理能力和模型效率方面取得了突破性进展。本季度最显著的特点是中国大模型企业DeepSeek的崛起，其推出的DeepSeek-R1模型在性能和成本效益方面引起了全球关注，标志着全球AI竞争格局的重大变化。同时，OpenAI推出了o3系列模型，进一步提升了推理能力和效率，并推出了Deep Research等创新应用。</p>
+        </div>
+        
+        <div class="section">
+            <h2>重大事件</h2>
+            
+            <div class="event-card">
+                <div class="event-date">2025年1月20日</div>
+                <div class="event-title">DeepSeek-R1正式发布并开源模型权重</div>
+                <p>幻方量化旗下AI公司深度求索（DeepSeek）正式发布DeepSeek-R1模型，并同步开源模型权重。DeepSeek-R1在后训练阶段大规模使用了强化学习技术，在仅有极少标注数据的情况下，极大提升了模型推理能力。在数学、代码、自然语言推理等任务上，性能比肩OpenAI o1正式版。该模型采用MIT许可协议完全开源，不限制商用，无需申请。</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">2025年1月31日</div>
+                <div class="event-title">OpenAI o3模型正式发布</div>
+                <p>OpenAI正式发布o3模型，这是一款专注于增强推理能力的生成预训练转换器，特别在需要精确度和速度的技术领域表现出色。o3-mini将向所有ChatGPT用户开放，包括免费用户，并引入了三个推理努力级别：低、中、高。同时，OpenAI推出了名为OpenAI Deep Research的新ChatGPT服务，利用o3模型基于网络搜索生成综合报告。</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">2025年1月31日</div>
+                <div class="event-title">DeepSeek-R1登陆NVIDIA NIM微服务</div>
+                <p>英伟达宣布，DeepSeek-R1模型已作为NVIDIA NIM微服务预览版提供。DeepSeek-R1 NIM微服务可以在单个NVIDIA HGX H200系统上每秒提供多达3,872个tokens。同一时段内，亚马逊和微软也接入了DeepSeek-R1模型，英伟达称DeepSeek-R1是最先进的大语言模型。</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">2025年2月初</div>
+                <div class="event-title">DeepSeek-R1被广泛接入中国主流应用和平台</div>
+                <p>2月初，DeepSeek-R1被中国众多主流应用和平台接入，包括百度智能云千帆平台、阿里云PAI Model Gallery、华为鸿蒙HarmonyOS NEXT的小艺助手、中国移动"移动云"、网易有道、出门问问等。这一现象显示了中国大模型生态系统的快速发展和成熟。</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">2025年2月初</div>
+                <div class="event-title">OpenAI推出o3-mini应对DeepSeek-R1挑战</div>
+                <p>OpenAI推出了o3-mini模型，作为对DeepSeek-R1的战略回应。o3-mini相比其前身o1-mini，减少了39%的重大错误，响应速度提高了24%。该模型引入了函数调用、结构化输出和可调整的推理级别等功能，通过ChatGPT的"Reason"选项向所有用户开放，付费用户每天可使用150条消息。</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">2025年2月初</div>
+                <div class="event-title">DeepSeek发布Janus-Pro 7B开源多模态AI</div>
+                <p>DeepSeek发布了Janus Pro，这是Janus框架的改进版本，旨在克服早期模型的局限性。DeepSeek声称这套新的多模态AI模型可以超越OpenAI的DALL-E 3。该模型通过架构创新、优化训练和数据增强，在各种任务中取得了显著成果。</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">2025年3月初</div>
+                <div class="event-title">DeepSeek-R1继续扩大应用范围</div>
+                <p>3月初，DeepSeek-R1继续扩大其应用范围，被百度文库、网盘全量上线，中信特钢公司完成了DeepSeek-R1大模型接入并搭建"特钢信使"应用，飞猪"AI行程助手"也集成了DeepSeek-R1能力。这表明大模型正在向更多垂直行业和具体应用场景渗透。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>数据分析</h2>
+            <h3>主要模型对比</h3>
+            <table class="model-comparison">
+                <thead>
+                    <tr>
+                        <th>模型</th>
+                        <th>发布时间</th>
+                        <th>输入上下文窗口</th>
+                        <th>最大输出tokens</th>
+                        <th>开源状态</th>
+                        <th>定价（输入/输出，百万tokens）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>OpenAI o3</td>
+                        <td>2025年1月31日</td>
+                        <td>200K tokens</td>
+                        <td>100K tokens</td>
+                        <td>非开源</td>
+                        <td>未公开</td>
+                    </tr>
+                    <tr>
+                        <td>OpenAI o3-mini</td>
+                        <td>2025年2月初</td>
+                        <td>128K tokens</td>
+                        <td>32K tokens</td>
+                        <td>非开源</td>
+                        <td>$1.10 / $4.40</td>
+                    </tr>
+                    <tr>
+                        <td>DeepSeek-R1</td>
+                        <td>2025年1月20日</td>
+                        <td>128K tokens</td>
+                        <td>32K tokens</td>
+                        <td>开源 (MIT)</td>
+                        <td>¥1-4 / ¥16 ($0.55 / $2.19)</td>
+                    </tr>
+                    <tr>
+                        <td>DeepSeek-R1-Distill-Qwen-32B</td>
+                        <td>2025年2月初</td>
+                        <td>32K tokens</td>
+                        <td>16K tokens</td>
+                        <td>开源 (MIT)</td>
+                        <td>更低</td>
+                    </tr>
+                    <tr>
+                        <td>Mistral-Small-24B-Instruct-2501</td>
+                        <td>2025年2月</td>
+                        <td>32K tokens</td>
+                        <td>16K tokens</td>
+                        <td>开源 (Apache 2.0)</td>
+                        <td>未公开</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>性能指标</h3>
+            <p>在2025年第一季度，大模型性能指标呈现以下特点：</p>
+            <ul>
+                <li>DeepSeek-R1在数学竞赛AIME和编程竞赛Codeforces等评测中超越了GPT-4o等模型</li>
+                <li>OpenAI o3-mini在AIME数学竞赛中，低努力级别达到60.0%准确率，中等努力级别达到79.6%，高努力级别达到87.3%，超过了o1和o1-mini</li>
+                <li>DeepSeek-R1在聊天机器人竞技场Arena上的得分达到1357分，略超OpenAI o1的1352分</li>
+                <li>DeepSeek-R1蒸馏的32B和70B小模型在多项能力上实现了对标OpenAI o1-mini的效果</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>技术趋势</h2>
+            
+            <div class="trend-item">
+                <div class="trend-icon">1</div>
+                <div class="trend-content">
+                    <h3>强化学习在大模型训练中的应用</h3>
+                    <p>2025年第一季度，强化学习在大模型训练中的应用成为显著趋势。DeepSeek-R1采用大规模强化学习进行后训练，在仅有极少标注数据的情况下，极大提升了模型推理能力。这种方法为大型语言模型的训练提供了新思路，显著降低了训练成本，提高了模型性能。</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">2</div>
+                <div class="trend-content">
+                    <h3>模型蒸馏技术的普及</h3>
+                    <p>模型蒸馏技术在本季度得到广泛应用，DeepSeek通过R1模型蒸馏出6个小模型并开源给社区，其中32B和70B模型在多项能力上实现了对标OpenAI o1-mini的效果。这一趋势使得高性能大模型的能力可以被压缩到更小的模型中，降低了部署和使用门槛。</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">3</div>
+                <div class="trend-content">
+                    <h3>可调整推理努力级别的设计</h3>
+                    <p>本季度发布的模型开始采用可调整推理努力级别的设计，如OpenAI o3-mini引入了低、中、高三个推理努力级别，用户可以根据任务复杂性平衡速度和精度。这种设计使模型能够更灵活地适应不同场景的需求，提高资源利用效率。</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">4</div>
+                <div class="trend-content">
+                    <h3>开源模型的崛起</h3>
+                    <p>开源模型在本季度展现出强大的竞争力，DeepSeek-R1采用MIT许可协议完全开源，不限制商用，无需申请，甚至明确允许用户利用模型输出进行模型蒸馏。这种开放策略促进了技术共享和创新，加速了AI技术的普及和应用。</p>
+                </div>
+            </div>
+            
+            <div class="trend-item">
+                <div class="trend-icon">5</div>
+                <div class="trend-content">
+                    <h3>推理型大模型的专业化</h3>
+                    <p>本季度出现了专注于推理能力的专业化大模型，如OpenAI的o3系列和DeepSeek的R1系列，这些模型在数学、代码和自然语言推理等任务上表现出色。这种专业化趋势使大模型能够更好地解决复杂问题，为科学研究、软件开发等领域提供更强大的支持。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>时间线</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年1月20日</div>
+                        <h3>DeepSeek-R1发布</h3>
+                        <p>DeepSeek正式发布R1模型并开源模型权重，采用MIT许可协议，性能比肩OpenAI o1。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年1月24日</div>
+                        <h3>DeepSeek-R1获国际认可</h3>
+                        <p>投资公司A16z创始人马克·安德森称DeepSeek-R1是他见过的最令人惊叹的突破之一。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年1月27日</div>
+                        <h3>DeepSeek应用登顶App Store</h3>
+                        <p>DeepSeek应用登顶苹果中国地区和美国地区应用商店免费APP下载排行榜，在美区超越ChatGPT。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年1月31日</div>
+                        <h3>OpenAI o3发布</h3>
+                        <p>OpenAI正式发布o3模型，专注于增强推理能力，并推出Deep Research服务。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年1月31日</div>
+                        <h3>DeepSeek-R1登陆NVIDIA NIM</h3>
+                        <p>英伟达宣布DeepSeek-R1模型作为NIM微服务预览版提供，亚马逊和微软也接入该模型。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年2月初</div>
+                        <h3>OpenAI推出o3-mini</h3>
+                        <p>OpenAI推出o3-mini模型应对DeepSeek-R1挑战，减少39%重大错误，响应速度提高24%。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年2月初</div>
+                        <h3>DeepSeek发布Janus-Pro 7B</h3>
+                        <p>DeepSeek发布开源多模态AI Janus-Pro 7B，声称超越OpenAI的DALL-E 3。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年2月初至3月</div>
+                        <h3>DeepSeek-R1广泛应用</h3>
+                        <p>DeepSeek-R1被中国众多主流应用和平台接入，包括百度、阿里云、华为、中国移动等。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 大模型季度报告 | 数据截至2025年3月31日</p>
+        </footer>
+    </div>
+</body>
+</html> 

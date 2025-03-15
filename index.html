@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大模型季度报告索引</title>
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --primary-dark: #3367d6;
+            --secondary-color: #34a853;
+            --accent-color: #ea4335;
+            --text-color: #202124;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dadce0;
+            --dark-gray: #5f6368;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 30px 30px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .year-section {
+            margin-bottom: 60px;
+        }
+        
+        .year-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--medium-gray);
+            display: inline-block;
+        }
+        
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .report-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 1;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-quarter {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-description {
+            color: var(--dark-gray);
+            flex-grow: 1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--dark-gray);
+            margin-top: 50px;
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        @media (max-width: 992px) {
+            .reports-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .reports-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .year-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            header {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>大模型季度报告</h1>
+            <p class="subtitle">追踪人工智能大模型领域的最新发展、技术突破和行业趋势，为您提供全面的季度分析报告</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="year-section">
+            <h2 class="year-title">2025年</h2>
+            <div class="reports-grid">
+                <a href="2025_Q1.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2025年第一季度</h3>
+                        <div class="card-quarter">1月 - 3月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2025年第一季度大模型发展报告，涵盖最新技术突破、行业动态和未来趋势预测。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="year-section">
+            <h2 class="year-title">2024年</h2>
+            <div class="reports-grid">
+                <a href="2024_Q1.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2024年第一季度</h3>
+                        <div class="card-quarter">1月 - 3月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2024年第一季度大模型发展报告，重点关注Claude 3系列和GPT-4 Turbo的发布，以及主要厂商之间的竞争格局变化。</p>
+                    </div>
+                </a>
+                
+                <a href="2024_Q2.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2024年第二季度</h3>
+                        <div class="card-quarter">4月 - 6月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2024年第二季度大模型发展报告，详细分析OpenAI的GPT-4o、Anthropic的Claude 3.5 Sonnet和Meta的Llama 3等重要模型的发布。</p>
+                    </div>
+                </a>
+                
+                <a href="2024_Q3.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2024年第三季度</h3>
+                        <div class="card-quarter">7月 - 9月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2024年第三季度大模型发展报告，重点关注OpenAI的o1系列模型和DeepSeek的崛起，以及大模型架构的创新。</p>
+                    </div>
+                </a>
+                
+                <a href="2024_Q4.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2024年第四季度</h3>
+                        <div class="card-quarter">10月 - 12月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2024年第四季度大模型发展报告，总结全年大模型技术的发展趋势，并分析OpenAI的o3和DeepSeek的R1等新模型的影响。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="year-section">
+            <h2 class="year-title">2023年</h2>
+            <div class="reports-grid">
+                <a href="2023_Q1.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2023年第一季度</h3>
+                        <div class="card-quarter">1月 - 3月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2023年第一季度大模型发展报告，重点关注GPT-4的发布及其对行业的影响，以及大模型技术的快速发展。</p>
+                    </div>
+                </a>
+                
+                <a href="2023_Q2.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2023年第二季度</h3>
+                        <div class="card-quarter">4月 - 6月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2023年第二季度大模型发展报告，详细分析开源模型的崛起和商业化应用的加速，以及中国大模型的集中发布。</p>
+                    </div>
+                </a>
+                
+                <a href="2023_Q3.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2023年第三季度</h3>
+                        <div class="card-quarter">7月 - 9月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2023年第三季度大模型发展报告，重点关注Meta正式发布Llama 2和Anthropic发布Claude 2，以及多模态能力的增强。</p>
+                    </div>
+                </a>
+                
+                <a href="2023_Q4.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2023年第四季度</h3>
+                        <div class="card-quarter">10月 - 12月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2023年第四季度大模型发展报告，分析OpenAI发布GPT-4 Turbo和Mistral AI发布Mixtral 8x7B等重要事件，以及超长上下文窗口的发展。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="year-section">
+            <h2 class="year-title">2022年</h2>
+            <div class="reports-grid">
+                <a href="2022_Q4.html" class="report-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2022年第四季度</h3>
+                        <div class="card-quarter">10月 - 12月</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">2022年第四季度大模型发展报告，重点关注ChatGPT的发布及其引发的行业变革，以及大模型技术的初步商业化应用。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2022-2025 大模型季度报告 | 数据持续更新</p>
+    </footer>
+</body>
+</html> 

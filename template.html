@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大模型季度报告 - QUARTER_TITLE</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .quarter-summary {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .event-card h3 {
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .event-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .event-description {
+            margin-bottom: 15px;
+        }
+        .event-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 30px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+        }
+        .model-comparison {
+            overflow-x: auto;
+        }
+    </style>
+    <!-- 引入Chart.js库，用于绘制图表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <a href="index.html" class="back-link">← 返回首页</a>
+    
+    <h1>QUARTER_TITLE 大模型季度报告</h1>
+    
+    <div class="quarter-summary">
+        <h2>季度概述</h2>
+        <p>QUARTER_SUMMARY</p>
+    </div>
+    
+    <h2>重大事件</h2>
+    
+    <!-- 事件列表将在这里填充 -->
+    <div class="events-container">
+        <!-- EVENT_CARDS -->
+    </div>
+    
+    <!-- 如果有数据图表，将在这里添加 -->
+    <div class="chart-container">
+        <h2>数据分析</h2>
+        <!-- CHARTS -->
+    </div>
+    
+    <!-- 如果有模型比较，将在这里添加 -->
+    <div class="model-comparison">
+        <h2>模型对比</h2>
+        <!-- MODEL_COMPARISON -->
+    </div>
+    
+    <footer>
+        <p>数据更新至：2025年3月15日</p>
+        <p>© 2025 大模型季度报告</p>
+    </footer>
+</body>
+</html> 
